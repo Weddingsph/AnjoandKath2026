@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anjo and Kath Ties The Knot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* Registry brown box */
+    /* Registry inner card styled like location footer card */
+    .registry-card {
+      background: rgba(199,124,99,0.9);
+      border-radius: 20px;
+      padding: 32px 28px;
+      max-width: 640px;
+      margin: auto;
+      text-align: center;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.28);
+    }
+
+    .registry-card h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .registry-card p {
+      margin-bottom: 18px;
+    }
+
+    .registry-btn {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      cursor: pointer;
+      background: #fff;
+      color: #91452c;
+      font-weight: 600;
+    }
+
+    /* Popup */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+.popup-content img {
+width: 150%;
+max-width: 480px;
+display: block;
+margin: 0 auto;
+border-radius: 16px;
+box-shadow: 0 14px 40px rgba(0,0,0,0.5);
+}
+
+    .popup-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #fff;
+      color: #333;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    /* Reminder layout */
+.reminder-row {
+display: flex;
+gap: 24px;
+align-items: center;
+max-width: 760px;
+margin: 0 auto;
+}
+
+
+.reminder-left {
+flex: 0 0 140px;
+text-align: center;
+}
+
+
+.reminder-thumb {
+width: 300px;
+height: 290px;
+object-fit: cover;
+border-radius: 14px;
+cursor: pointer;
+box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+.reminder-right {
+flex: 1;
+}
+
+
+@media (max-width: 720px) {
+.reminder-row {
+flex-direction: column;
+text-align: center;
+}
+}
+    
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: #333;
+      text-align:center;
+    }
+
+    /* Sticky Navigation with blurry glass effect */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(145,69,44,0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #6f2b16;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .admin-btn {
+      font-size: 12px;
+      opacity: 0.6;
+      cursor: pointer;
+      margin-right:3%;
+    }
+
+    /* Parallax base stretched end-to-end */
+    .parallax {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* Gentle smoke fade for readability */
+    .parallax::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .parallax .inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Mobile fallback: disable fixed parallax where unsupported */
+@media (max-width: 900px) {
+.parallax {
+background-attachment: scroll;
+height: 70vh;
+}
+
+
+    /* Center RSVP on mobile */
+#rsvp .rsvp-form {
+margin: 8%;
+text-align: center;
+  max-width:315px;
+}
+
+/* Hide navigation on mobile */
+nav {
+display: none;
+}
+
+/* Different hero image for mobile */
+#home {
+background-image: url("https://res.cloudinary.com/dzjdhooce/image/upload/v1770159084/Anjo_x_Kath_Invitations_Option_7_Mobile_Video_1_krk97f.png") !important;
+  height:700px !important;
+}
+}
+
+
+    .parallax .inner {
+      padding: 20px;
+      max-width: 900px;
+    }
+
+    /* Home hero flush to very top */
+    #home {
+      height: 100vh;
+      background-image: url("https://res.cloudinary.com/dzjdhooce/image/upload/v1770139673/Anjo_x_Kath_Invitations_Option_7_Website_1_xjj12g.png");
+    }
+
+    /* Standard content sections */
+    section.content {
+      padding: 100px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section.content h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .rsvp-intro {
+      text-align: center;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    /* RSVP */
+    .rsvp-form {
+      max-width: 400px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .rsvp-form input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .rsvp-form button {
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color:#91452c;
+      color:white;
+    }
+
+    /* Gift Registry parallax */
+    #gifts {
+      background-image: url("https://res.cloudinary.com/dzjdhooce/image/upload/v1770139164/2148370123_ognokd.jpg");
+    }
+
+    /* Footer style location */
+.parallax-footer {
+  position: relative;
+  overflow: hidden;
+  color: #eee;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* The moving background */
+.parallax-bg {
+  position: absolute;
+  inset: -20%;
+  background-image: url("https://res.cloudinary.com/dzjdhooce/image/upload/v1770154933/9923_i4kayy.jpg");
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: 0;
+}
+
+/* Keep content above background */
+.footer-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Your existing styles */
+.map-container {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.5);
+}
+
+footer p {
+  margin-top: 16px;
+  font-size: 16px;
+  background:rgba(170,117,77,0.5);
+  color:white;
+  padding:1%;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#gifts">Gift Registry</a>
+      <a href="#reminders">Celebration Reminders</a>
+      <a href="#location">Location</a>
+    </div>
+    <div class="admin-btn" onclick="adminAccess()">Admin</div>
+  </nav>
+
+  <!-- Hero Parallax -->
+  <header id="home" class="parallax">
+    <div class="inner">
+      <h1></h1>
+      <p></p>
+    </div>
+  </header>
+
+  <!-- RSVP -->
+  <section id="rsvp" class="content">
+    <h2>RSVP</h2>
+
+    <p class="rsvp-intro">
+      This day feels incomplete without your laughter somewhere in the room. RSVP so we can count you among the witnesses to our forever and the brave tasters of the dessert table.
+    </p>
+
+    <div class="rsvp-form">
+      <input type="text" id="firstName" placeholder="First Name" />
+      <input type="text" id="lastName" placeholder="Last Name" />
+      <button onclick="submitRSVP()">Submit RSVP</button>
+      <p id="rsvp-message"></p>
+    </div>
+  </section>
+
+  <!-- Gift Registry Parallax -->
+  <section id="gifts" class="parallax">
+    <div class="inner">
+
+      <div class="registry-card">
+        <h2>Gift Registry</h2>
+
+        <p>
+          We are not collecting things, just memories and a slightly bigger dream. Should you feel moved to gift, a contribution through the QR below will help us start married life with steady feet and happy hearts.
+        </p>
+
+        <button class="registry-btn" onclick="openRegistryPopup()">Thank You!</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Registry Image Popup -->
+  <div id="registryPopup" class="popup-overlay" onclick="closeRegistryPopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <img src="https://placehold.co/800x1000" alt="Registry Placeholder" />
+      <span class="popup-close" onclick="closeRegistryPopup()">×</span>
+    </div>
+  </div>
+
+  <!-- Celebration Reminders -->
+<section id="reminders" class="content">
+<h2>Celebration Reminders</h2>
+
+
+<p style="text-align:center; margin-bottom:32px;">
+Think of the day as part wedding, part reunion, and part elegant excuse to eat dessert before dinner. A few helpful details live here to keep the adventure smooth and the laughter plentiful. Check below for some reminders on this special day.
+</p>
+
+
+<div class="reminder-row">
+<div class="reminder-left">
+<img src="https://res.cloudinary.com/dzjdhooce/image/upload/v1770156222/Beige_and_Brown_Minimalist_Autumn_Color_Palette_Instagram_Post_ithjwn.png" class="reminder-thumb" onclick="openReminderImage()" />
+</div>
+
+
+<div class="reminder-right">
+<h3>Attire: A Gentle Note</h3>
+<p>We invite you to wear <strong>Semi-formal</strong> or your <strong>Sunday's best</strong>. Comfort is encouraged, confidence is required.</p>
+
+</div>
+</div>
+</section>
+
+
+<!-- Reminder Image Popup -->
+<div id="reminderPopup" class="popup-overlay" onclick="closeReminderImage()">
+<div class="popup-content" onclick="event.stopPropagation()">
+<img src="https://res.cloudinary.com/dzjdhooce/image/upload/v1770156222/Beige_and_Brown_Minimalist_Autumn_Color_Palette_Instagram_Post_ithjwn.png" alt="Reminder Image" />
+<span class="popup-close" onclick="closeReminderImage()">×</span>
+</div>
+</div>
+  
+
+  <!-- Location Footer -->
+<footer id="location" class="parallax-footer">
+  <div class="parallax-bg"></div>
+
+  <div class="footer-content">
+    <h2>Reception Location</h2>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps?q=Max's+Sucat+Parañaque&output=embed"
+        width="100%"
+        height="360"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+    <p><strong>Parking tip:</strong> The restaurant has limited slots in front, with additional spaces at the side lot and nearby street parking. Plan your arrival earlier to secure your slot.</p>
+    
+    <p>Questions? Contact Kath or Anjo at <strong>09123456789</strong></p>
+      </div>
+  </footer>
+
+
+  
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxn5bxUYo0WUI4Tq726G_PvjbHpiMWGaReGTt_c69QRqjtOkZ9Ua6hx1s-dBg9g3X5Y6Q/exec";
+    const SHEET_URL = "https://docs.google.com/spreadsheets/d/1qm_SbJVPNtdRdiOcfvWmR_i6Gnvfe2VlWhHvSRuRPl8/edit?gid=0#gid=0";
+
+    function submitRSVP() {
+      const firstInput = document.getElementById("firstName");
+      const lastInput = document.getElementById("lastName");
+      const message = document.getElementById("rsvp-message");
+
+      const firstName = firstInput.value.trim().replace(/\s+/g, " ");
+      const lastName = lastInput.value.trim().replace(/\s+/g, " ");
+
+      if (!firstName || !lastName) {
+        message.innerText = "Please enter both first and last name.";
+        return;
+      }
+
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({ firstName, lastName })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "exists") {
+          alert("This name already exists!");
+        } else {
+          message.innerText = "Thank you! We can't wait to celebrate with you!";
+          firstInput.value = "";
+          lastInput.value = "";
+        }
+      })
+      .catch(() => {
+        message.innerText = "Something went wrong. Please try again.";
+      });
+    }
+
+    function openRegistryPopup() {
+      document.getElementById('registryPopup').style.display = 'flex';
+    }
+
+    function closeRegistryPopup() {
+      document.getElementById('registryPopup').style.display = 'none';
+    }
+    function openReminderImage() {
+      document.getElementById('reminderPopup').style.display = 'flex';
+    }
+    function closeReminderImage() {
+      document.getElementById('reminderPopup').style.display = 'none';
+}
+
+    function adminAccess() {
+      const pw = prompt("Enter admin password:");
+      if (pw === "password123") {
+        window.open(SHEET_URL, "_blank");
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+  </script>
+
+<script>
+  const footer = document.querySelector('.parallax-footer');
+  const bg = footer.querySelector('.parallax-bg');
+
+  let latestScrollY = 0;
+  let ticking = false;
+
+  function onScroll() {
+    latestScrollY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  function updateParallax() {
+    const rect = footer.getBoundingClientRect();
+    const offset = rect.top + window.scrollY;
+    const scrollDistance = window.scrollY - offset;
+
+    bg.style.transform = `translateY(${scrollDistance * 0.3}px)`;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+
+
+  
+</body>
+</html>

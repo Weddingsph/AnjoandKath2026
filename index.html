@@ -349,6 +349,56 @@ footer p {
     </div>
   </header>
 
+  <div id="rsvp-countdown" style="
+  font-family: Poppins, Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #2a2a2a;
+">
+  <div style="font-size:14px; letter-spacing:1px;">Time until celebration</div>
+  <div id="timer" style="
+    font-size:22px;
+    font-weight:600;
+    margin-top:4px;
+  "></div>
+</div>
+
+<script>
+(function() {
+
+  // ───── EDIT THIS DATE ─────
+  const eventDate = new Date("2026-12-20T15:00:00");
+  // ──────────────────────────
+
+  function tickTock() {
+    const now = new Date().getTime();
+    const gap = eventDate - now;
+
+    if (gap <= 0) {
+      document.getElementById("timer").innerHTML =
+        "The day has arrived 🎉";
+      return;
+    }
+
+    const days = Math.floor(gap / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((gap / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((gap / (1000 * 60)) % 60);
+    const seconds = Math.floor((gap / 1000) % 60);
+
+    document.getElementById("timer").innerHTML =
+      days + "d " +
+      hours + "h " +
+      minutes + "m " +
+      seconds + "s";
+  }
+
+  tickTock();
+  setInterval(tickTock, 1000);
+
+})();
+</script>
+
+  
   <!-- RSVP -->
   <section id="rsvp" class="content">
     <h2>RSVP</h2>

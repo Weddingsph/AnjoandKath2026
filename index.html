@@ -349,47 +349,104 @@ footer p {
     </div>
   </header>
 
-  <div id="rsvp-countdown" style="
-  font-family: Poppins, Arial, sans-serif;
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+<div id="rsvp-countdown" style="
+  font-family: 'Cormorant Garamond', serif;
   text-align: center;
-  margin-bottom: 12px;
-  color: #2a2a2a;
+  margin-bottom: 16px;
+  color: #2F2B26;
 ">
-  <div style="font-size:14px; letter-spacing:1px;">Time until celebration</div>
+
+  <div style="
+    font-size:15px;
+    letter-spacing:1.2px;
+    margin-bottom:8px;
+  ">
+    Until We Say I Do
+  </div>
+
   <div id="timer" style="
-    font-size:22px;
-    font-weight:600;
-    margin-top:4px;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
   "></div>
+
+  <div style="
+    font-size:12px;
+    margin-top:6px;
+    color:#8B6F47;
+  ">
+    Based on Manila Time (GMT+8)
+  </div>
 </div>
 
 <script>
 (function() {
 
-  // ───── EDIT THIS DATE ─────
-  const eventDate = new Date("2026-12-20T15:00:00");
-  // ──────────────────────────
+  // ───── EDIT YOUR DATE HERE ─────
+  var EVENT_DATE = "2026-12-20T15:00:00+08:00";
+  // ───────────────────────────────
+
+  function safeDate(str) {
+    var d = new Date(str);
+    if (isNaN(d.getTime())) {
+      var p = str.replace("+08:00","").split(/[-T:]/);
+      d = new Date(p[0], p[1]-1, p[2], p[3]||0, p[4]||0, p[5]||0);
+    }
+    return d;
+  }
+
+  var eventDate = safeDate(EVENT_DATE);
+
+  function pad(n){ return n < 10 ? "0"+n : n; }
+
+  function box(num, label) {
+    return (
+      '<div style="' +
+        'background:#F6EFE6;' +
+        'border-radius:14px;' +
+        'padding:10px 12px;' +
+        'min-width:72px;' +
+        'box-shadow:0 6px 14px rgba(0,0,0,0.06);' +
+      '">' +
+
+        '<div style="font-size:22px; font-weight:600; color:#8B6F47;">' +
+          num +
+        '</div>' +
+
+        '<div style="font-size:11px; letter-spacing:1px; margin-top:2px;">' +
+          label +
+        '</div>' +
+
+      '</div>'
+    );
+  }
 
   function tickTock() {
-    const now = new Date().getTime();
-    const gap = eventDate - now;
+    var now = new Date().getTime();
+    var gap = eventDate.getTime() - now;
+
+    var wrap = document.getElementById("timer");
+    if (!wrap) return;
 
     if (gap <= 0) {
-      document.getElementById("timer").innerHTML =
-        "The day has arrived 🎉";
+      wrap.innerHTML =
+        '<div style="font-size:18px;">The day has arrived ✦</div>';
       return;
     }
 
-    const days = Math.floor(gap / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((gap / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((gap / (1000 * 60)) % 60);
-    const seconds = Math.floor((gap / 1000) % 60);
+    var days = Math.floor(gap / (1000*60*60*24));
+    var hours = Math.floor((gap / (1000*60*60)) % 24);
+    var minutes = Math.floor((gap / (1000*60)) % 60);
+    var seconds = Math.floor((gap / 1000) % 60);
 
-    document.getElementById("timer").innerHTML =
-      days + "d " +
-      hours + "h " +
-      minutes + "m " +
-      seconds + "s";
+    wrap.innerHTML =
+      box(days, "days") +
+      box(pad(hours), "hours") +
+      box(pad(minutes), "minutes") +
+      box(pad(seconds), "seconds");
   }
 
   tickTock();

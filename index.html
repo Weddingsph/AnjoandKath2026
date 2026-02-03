@@ -349,19 +349,19 @@ footer p {
     </div>
   </header>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
 <div id="rsvp-countdown" style="
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   color: #2F2B26;
 ">
 
   <div style="
-    font-size:15px;
-    letter-spacing:1.2px;
-    margin-bottom:8px;
+    font-size:16px;
+    letter-spacing:1.4px;
+    margin-bottom:10px;
   ">
     Until We Say I Do
   </div>
@@ -369,13 +369,13 @@ footer p {
   <div id="timer" style="
     display:flex;
     justify-content:center;
-    gap:8px;
+    gap:9px;
     flex-wrap:wrap;
   "></div>
 
   <div style="
     font-size:12px;
-    margin-top:6px;
+    margin-top:8px;
     color:#8B6F47;
   ">
     Based on Manila Time (GMT+8)
@@ -385,9 +385,9 @@ footer p {
 <script>
 (function() {
 
-  // ───── EDIT YOUR DATE HERE ─────
-  var EVENT_DATE = "2026-12-20T15:00:00+08:00";
-  // ───────────────────────────────
+  // ───── YOUR EVENT DATE ─────
+  var EVENT_DATE = "2026-03-19T15:00:00+08:00";
+  // ───────────────────────────
 
   function safeDate(str) {
     var d = new Date(str);
@@ -406,17 +406,17 @@ footer p {
     return (
       '<div style="' +
         'background:#F6EFE6;' +
-        'border-radius:14px;' +
-        'padding:10px 12px;' +
-        'min-width:72px;' +
-        'box-shadow:0 6px 14px rgba(0,0,0,0.06);' +
+        'border-radius:16px;' +
+        'padding:12px 14px;' +
+        'min-width:76px;' +
+        'box-shadow:0 8px 18px rgba(0,0,0,0.07);' +
       '">' +
 
-        '<div style="font-size:22px; font-weight:600; color:#8B6F47;">' +
+        '<div style="font-size:24px; font-weight:600; color:#8B6F47;">' +
           num +
         '</div>' +
 
-        '<div style="font-size:11px; letter-spacing:1px; margin-top:2px;">' +
+        '<div style="font-size:12px; letter-spacing:1px; margin-top:3px;">' +
           label +
         '</div>' +
 
@@ -454,6 +454,7 @@ footer p {
 
 })();
 </script>
+
 
   
   <!-- RSVP -->

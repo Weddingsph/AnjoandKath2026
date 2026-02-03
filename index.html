@@ -353,33 +353,35 @@ footer p {
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
 <div style="
-  background:#F1E9DE;            /* ← change this for your color */
-  border-radius:20px;
-  padding:18px 14px;
-  max-width:420px;
-  margin:0 auto 16px auto;
+  background:#F1E9DE;               /* ← your accent color */
+  width:100%;
+  padding:20px 14px;
+  box-sizing:border-box;
   box-shadow:0 10px 24px rgba(0,0,0,0.08);
-  border:1px solid rgba(139,111,71,0.18);
+  border-top:1px solid rgba(139,111,71,0.18);
+  border-bottom:1px solid rgba(139,111,71,0.18);
 ">
 
   <div id="rsvp-countdown" style="
     font-family:'Playfair Display', serif;
     text-align:center;
     color:#2F2B26;
+    max-width:1100px;
+    margin:0 auto;
   ">
 
     <div style="
-      font-size:16px;
-      letter-spacing:1.4px;
-      margin-bottom:10px;
+      font-size:17px;
+      letter-spacing:1.6px;
+      margin-bottom:12px;
     ">
-      Countdown to Celebration!
+      Until the Celebration!
     </div>
 
     <div id="timer" style="
       display:flex;
       justify-content:center;
-      gap:9px;
+      gap:10px;
       flex-wrap:wrap;
     "></div>
 
@@ -418,9 +420,9 @@ footer p {
     return (
       '<div style="' +
         'background:#FFFFFF;' +
-        'border-radius:16px;' +
+        'border-radius:18px;' +
         'padding:12px 14px;' +
-        'min-width:76px;' +
+        'min-width:80px;' +
         'box-shadow:0 8px 18px rgba(0,0,0,0.07);' +
       '">' +
 
@@ -466,6 +468,7 @@ footer p {
 
 })();
 </script>
+
 
 
 

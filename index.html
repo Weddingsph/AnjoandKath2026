@@ -38,48 +38,74 @@
       font-weight: 600;
     }
 
-    /* Popup */
-    .popup-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.65);
-      backdrop-filter: blur(4px);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .popup-content {
-      position: relative;
-      max-width: 90%;
-      max-height: 90%;
-    }
-
-.popup-content img {
-width: 250%;
-max-width: 680px;
-display: block;
-margin: 0 auto;
-border-radius: 16px;
-box-shadow: 0 14px 40px rgba(0,0,0,0.5);
+/* Popup */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
 }
 
-    .popup-close {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      background: #fff;
-      color: #333;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 20px;
-    }
+.popup-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* Desktop image behavior */
+.popup-content img {
+  width: 100%;               /* ← fixed from 250% */
+  max-width: 680px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.5);
+}
+
+.popup-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #fff;
+  color: #333;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* ───── MOBILE FIXES ───── */
+@media (max-width: 600px) {
+
+  .popup-content {
+    max-width: 94% !important;
+    max-height: 86% !important;
+  }
+
+  .popup-content img {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 12px !important;
+  }
+
+  .popup-close {
+    top: -6px !important;
+    right: -6px !important;
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 18px !important;
+  }
+
+}
+
 
     /* Reminder layout */
 .reminder-row {

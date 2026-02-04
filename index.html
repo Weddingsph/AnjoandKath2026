@@ -322,33 +322,6 @@ footer p {
   color:white;
   padding:1%;
 }
-    @media (max-width: 600px) {
-
-  #rsvp-countdown .timer-box {
-    min-width: 60px !important;
-    padding: 10px 8px !important;
-    border-radius: 14px !important;
-  }
-
-  #rsvp-countdown .timer-num {
-    font-size: 10px !important;
-  }
-
-  #rsvp-countdown .timer-label {
-    font-size: 7px !important;
-  }
-
-  #rsvp-countdown .headline {
-    font-size: 10px !important;
-    margin-bottom: 8px !important;
-  }
-
-  #rsvp-countdown .zone {
-    font-size: 8px !important;
-  }
-
-}
-
 
 
   </style>
@@ -379,10 +352,39 @@ footer p {
   
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
+<style>
+@media (max-width: 600px) {
+
+  #rsvp-countdown .timer-box {
+    min-width: 60px !important;
+    padding: 10px 8px !important;
+    border-radius: 14px !important;
+  }
+
+  #rsvp-countdown .timer-num {
+    font-size: 20px !important;
+  }
+
+  #rsvp-countdown .timer-label {
+    font-size: 10px !important;
+  }
+
+  #rsvp-countdown .headline {
+    font-size: 15px !important;
+    margin-bottom: 8px !important;
+  }
+
+  #rsvp-countdown .zone {
+    font-size: 11px !important;
+  }
+
+}
+</style>
+
 <div style="
-  background:#F1E9DE;               /* ← your accent color */
+  background:#F1E9DE;
   width:100%;
-  padding:20px 14px;
+  padding:18px 10px;
   box-sizing:border-box;
   box-shadow:0 10px 24px rgba(0,0,0,0.08);
   border-top:1px solid rgba(139,111,71,0.18);
@@ -397,24 +399,24 @@ footer p {
     margin:0 auto;
   ">
 
-    <div style="
-      font-size:20px;
+    <div class="headline" style="
+      font-size:17px;
       letter-spacing:1.6px;
-      margin-bottom:20px;
+      margin-bottom:12px;
     ">
-      Until the Celebration!
+      Until We Celebrate!
     </div>
 
     <div id="timer" style="
       display:flex;
       justify-content:center;
-      gap:10px;
+      gap:8px;
       flex-wrap:wrap;
     "></div>
 
-    <div style="
+    <div class="zone" style="
       font-size:12px;
-      margin-top:20px;
+      margin-top:8px;
       color:#8B6F47;
     ">
       Based on Manila Time (GMT+8)
@@ -426,9 +428,7 @@ footer p {
 <script>
 (function() {
 
-  // ───── YOUR EVENT DATE ─────
-  var EVENT_DATE = "2026-03-19T15:00:00+08:00";
-  // ───────────────────────────
+  var EVENT_DATE = "2026-12-20T15:00:00+08:00";
 
   function safeDate(str) {
     var d = new Date(str);
@@ -445,7 +445,7 @@ footer p {
 
   function box(num, label) {
     return (
-      '<div style="' +
+      '<div class="timer-box" style="' +
         'background:#FFFFFF;' +
         'border-radius:18px;' +
         'padding:12px 14px;' +
@@ -453,11 +453,11 @@ footer p {
         'box-shadow:0 8px 18px rgba(0,0,0,0.07);' +
       '">' +
 
-        '<div style="font-size:30px; font-weight:600; color:#8B6F47;">' +
+        '<div class="timer-num" style="font-size:24px; font-weight:600; color:#8B6F47;">' +
           num +
         '</div>' +
 
-        '<div style="font-size:10px; letter-spacing:1px; margin-top:3px;">' +
+        '<div class="timer-label" style="font-size:12px; letter-spacing:1px; margin-top:3px;">' +
           label +
         '</div>' +
 
@@ -495,7 +495,6 @@ footer p {
 
 })();
 </script>
-
 
 
 
